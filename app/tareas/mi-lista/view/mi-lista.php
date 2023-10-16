@@ -4,6 +4,19 @@
     <div class="col-md-4 col-lg-3 col-sm-6 col-12">
         <h3 class="text-center">Menu</h3>
         <hr>
+        <div class="card border-primary text-center mb-3">
+            <div class="card-body">
+                <i class="card-img-top"> <img src="/mvc/app/assets/user_avatar.jpg" width="150px" alt="Logo" srcset="" /></i>
+                <h3 class="card-title"><?php echo $_SESSION['user_name']; ?></h3>
+            </div>
+            <div class="card-footer">
+                <p class="card-text" style="color: #393f81;">
+                    <a href="/mvc/tareas/log-out" class="btn btn btn-outline-link"
+                    title="Cerrar Sesión"
+                    ><i class="bi bi-box-arrow-left"></i></a>
+                </p>
+            </div>
+        </div>
         <ul class="list-group">
             <li class="list-group-item">
                 <a href="/mvc/tareas/registro" class="btn btn-link">Nueva tarea</a>
@@ -18,8 +31,8 @@
         <hr>
         <?php
             include_once("./app/tareas/repository/tareas.repository.php");
-
-            $tareas = TareasRepository::getInstance()->getAllTareas();
+            $idUsuario = $_SESSION['userId'];
+            $tareas = TareasRepository::getInstance()->getAllTareasByUserId($idUsuario);
 
             // print_r($tareas);
 
@@ -39,6 +52,19 @@
                         break;
                 }
 
+                $button = "";
+
+                if ($tareas[$i]->getStatus() != "Completado") {
+                    $button = "
+                    <a class='btn btn-success btn-sm'
+                        href='/mvc/tareas/completar?id={$tareas[$i]->getId()}' 
+                        title='Marcar tarea como Completada'
+                        >
+                        <i class='bi bi-bookmark-check'></i>
+                    </a>
+                    ";
+                }
+
                 $html = "
                     <div class='col-12 mx-3'>
                         <div class='card mt-3 border-black'>
@@ -55,20 +81,12 @@
                             </div>
 
                             <div class='card-footer'>
-                                <div class='row align-items-center'>
-                                    <p class='col card-text'></p>
-                                    <p class='col card-text text-center text-{$color}'>
+                                <div class='row justify-content-end'>
+                                    <p class='col-4 card-text text-center text-{$color}'>
                                         <strong>&squf;</strong>{$tareas[$i]->getStatus()}
                                     </p>
-                                    <p class='col card-text'>
-                                    <a class='btn btn-success' 
-                                        href='/mvc/tareas/completar?id={$tareas[$i]->getId()}' >
-                                        Completar
-                                    </a>
-                                    <form action='' method='post'>
-                                        <input type='hidden' name='id' value='{$tareas[$i]->getId()}' />
-                                        <button class='btn btn-success' type='submit'>C</button>
-                                    </form>
+                                    <p class='col-4 self-align-end card-text text-end'>
+                                        {$button}
                                     </p>
                                 </div>
                             </div>
