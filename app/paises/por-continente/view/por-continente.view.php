@@ -9,5 +9,13 @@
     </section>
 
     <!-- Container -->
-    <section class="col"></section>
+    <section class="col">
+        <div class="col-12">
+            <h3>Paises</h3>
+            <hr>
+        </div>
+        <div id="button-container" class="col-12 text-center"></div>
+        <div id="paises-container" class="col-12 row"></div>
+    </section>
 </main>
+<script src="/mvc/app/paises/por-continente/controller/por-continente.controller.js"></script>
