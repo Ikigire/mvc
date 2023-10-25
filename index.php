@@ -1,22 +1,24 @@
 <?php
-    $maxlifetime = 3; //máximo tiempo de vida de la sesión en segundo
-    $secure = true; //Habilitar seguridad
-    $http_only = true;
-    $samesite = 'lax';
-    $host = $_SERVER['HTTP_HOST'];
+    // $maxlifetime = 3; //máximo tiempo de vida de la sesión en segundo
+    // $secure = true; //Habilitar seguridad
+    // $http_only = true;
+    // $samesite = 'lax';
+    // $host = $_SERVER['HTTP_HOST'];
     
-    session_set_cookie_params([
-        'lifetime'  => $maxlifetime,
-        'path'      => './',
-        'domain'    => $host,
-        'secure'    => $secure,
-        'httponly'  => $http_only,
-        'samesite'  => $samesite
-    ]);
+    // session_set_cookie_params([
+    //     'lifetime'  => $maxlifetime,
+    //     'path'      => './',
+    //     'domain'    => $host,
+    //     'secure'    => $secure,
+    //     'httponly'  => $http_only,
+    //     'samesite'  => $samesite
+    // ]);
 
-    session_start([
-        //'cookie_lifetime' => 60*60*4
-    ]);
+    // session_start([
+    //     //'cookie_lifetime' => 60*60*4
+    // ]);
+
+    session_start();
 
     function checkSession(): bool {
         return isset($_SESSION['userId']) && $_SESSION['userId'] != null;
