@@ -53,3 +53,7 @@ async function requestCountriesData(continente) {
     //     console.log("Paises:",paises);
     // } );
 }
+
+function renderizarPaises() {
+    
+}
