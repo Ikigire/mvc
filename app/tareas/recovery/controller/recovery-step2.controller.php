@@ -8,7 +8,7 @@
         case 'POST':
             include_once("./app/tareas/repository/usuario.repository.php");
             if ( !isset( $_POST['password'] ) ){
-                header("Location: /mvc/tareas/recovery-s2?error=No ingresó contraseña");
+                header("Location: /tareas/recovery-s2?error=No ingresó contraseña");
                 break;
             }
 
@@ -22,11 +22,11 @@
             $usuario->setPassword($password);
 
             if ( !UsuariosRepository::getInstance()->changeUsuarioPassword($usuario) ){
-                header("Location: /mvc/tareas/recovery?error=No fue posible cambiar la contraseña, inténtelo más tarde");
+                header("Location: /tareas/recovery?error=No fue posible cambiar la contraseña, inténtelo más tarde");
                 break;
             }
             session_destroy();
-            header("Location: /mvc/tareas/login");
+            header("Location: /tareas/login");
             break;
         default:
             # code...

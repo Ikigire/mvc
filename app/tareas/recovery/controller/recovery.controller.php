@@ -8,7 +8,7 @@
         case 'POST':
             include_once("./app/tareas/repository/usuario.repository.php");
             if ( !isset( $_POST['usuario'] ) ) {
-                header("Location: /mvc/tareas/recovery?error=Asegurese de ingresar un usuario válido");
+                header("Location: /tareas/recovery?error=Asegurese de ingresar un usuario válido");
                 break;
             }
 
@@ -16,7 +16,7 @@
             $usuario = UsuariosRepository::getInstance()->findUsuarioByUsuario($user_name);
 
             if ( !$usuario ){
-                header("Location: /mvc/tareas/recovery?error=No fue posible encontrar al usuario {$user_name}, revise su escritura e intente de nuevo");
+                header("Location: /tareas/recovery?error=No fue posible encontrar al usuario {$user_name}, revise su escritura e intente de nuevo");
                 break;
             }
 
@@ -24,7 +24,7 @@
             $_SESSION['recovery_user_name'] = $usuario->getUsuario();
             $_SESSION['recovery_user_pass'] = $usuario->getPassword();
             
-            header("Location: /mvc/tareas/recovery-s2");
+            header("Location: /tareas/recovery-s2");
             break;
         default:
             # code...

@@ -1,23 +1,4 @@
 <?php
-    // $maxlifetime = 3; //máximo tiempo de vida de la sesión en segundo
-    // $secure = true; //Habilitar seguridad
-    // $http_only = true;
-    // $samesite = 'lax';
-    // $host = $_SERVER['HTTP_HOST'];
-    
-    // session_set_cookie_params([
-    //     'lifetime'  => $maxlifetime,
-    //     'path'      => './',
-    //     'domain'    => $host,
-    //     'secure'    => $secure,
-    //     'httponly'  => $http_only,
-    //     'samesite'  => $samesite
-    // ]);
-
-    // session_start([
-    //     //'cookie_lifetime' => 60*60*4
-    // ]);
-
     session_start();
 
     function checkSession(): bool {
@@ -25,9 +6,7 @@
     }
 
     // Trabajando variables de entorno
-
     $env = parse_ini_file(".env");
-    //print_r($env);
 
     foreach ( $env as $llave => $value ){
         $_ENV[$llave] = $value;
@@ -46,22 +25,18 @@
 </head>
 
 <body class="container mt-3">
-    <!-- <h1>Hola Mundo</h1> -->
         <?php
-        //  Incluyendo todas las constantes que usaremos
-        include_once("./constantes.php");
 
         /*
-    *
-    *   El objeto _SERVER de PHP contiene la información de la petición, tal como la URL solicitada
-    *
-    */
+        *
+        *   El objeto _SERVER de PHP contiene la información de la petición, tal como la URL solicitada
+        *
+        */
+        $base_index = 0;
         $request_uri = $_SERVER['REQUEST_URI'];
 
         // Método solicitado:
         $request_method = $_SERVER['REQUEST_METHOD'];
-
-        // echo $request_uri, $request_method;
 
         // Obteniendo la información completa de la URL
         $url_components = parse_url($request_uri);
@@ -74,17 +49,7 @@
 
         $path_components = explode('/',  $path_url);
 
-        // echo json_encode($path_components);
-
-        // echo "
-        //         <br>
-        //         El Recurso solicitado es: $path_url <br>
-        //         Esta petición fue realizada a través de: $request_method <br>
-        //         Los query params recibidos son: $query_params['perro']
-        //     ";
-
         require_once("./app.controller.php");
-
         ?>
 </body>
 

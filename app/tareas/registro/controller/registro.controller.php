@@ -19,12 +19,12 @@
 
             if ( !TareasRepository::getInstance()->saveNewTarea($tarea) ) {
                 $error = TareasRepository::getInstance()->getMysqli()->error;
-                header("Location: /mvc/tareas/registro?error=ERROR: {$error}");
-                // header("Location: /mvc/tareas/registro?error=ERROR: No fue posible crear la tarea");
+                header("Location: /tareas/registro?error=ERROR: {$error}");
+                // header("Location: /tareas/registro?error=ERROR: No fue posible crear la tarea");
                 break;
             }
 
         default:
-            header("Location: /mvc/tareas/mi-lista");
+            header("Location: /tareas/mi-lista");
             break;
     }

@@ -1,6 +1,9 @@
 <?php
-    switch ($path_components[1]) {
-        case '':
+    if ( !isset($path_components[$base_index]) ){
+        $path_components[$base_index] = "";
+    }
+    switch ($path_components[$base_index]) {
+        
         case 'practicajscss':
             require_once('./app/practicajscss/controller/practicajscss.controller.php');
             break;
@@ -18,6 +21,6 @@
             break;
         
         default:
-            header("HTTP/1.1 404 Not Found");
+            header("Location: /practicajscss");
             break;
     }

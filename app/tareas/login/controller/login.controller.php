@@ -6,26 +6,26 @@ switch ($request_method) {
         break;
 
     case 'POST':
-        include_once("./app/tareas/repository/usuario.repository.php");
+        require_once("./app/tareas/repository/usuario.repository.php");
 
         $user_name  = $_POST['usuario'];
         $password   = $_POST['password'];
 
-        $usuario = new Usuario( 0, usuario:$user_name, password:$password);
+        $usuario = new Usuario( 0, $user_name, $password);
 
         $ur = UsuariosRepository::getInstance();
 
         $usuario = $ur->loginUsuario($usuario);
 
         if ( $usuario->getId() == 0 ) {
-            header("Location: /mvc/tareas/login?error=El usuario o contraseña son incorrectos");
+            header("Location: /tareas/login?error=El usuario o contraseña son incorrectos");
             break;
         }
 
         $_SESSION['userId'] = $usuario->getId();
         $_SESSION['user_name'] = $usuario->getUsuario();
 
-        header("Location: /mvc/tareas/mi-lista");
+        header("Location: /tareas/mi-lista");
         break;
 
     default:

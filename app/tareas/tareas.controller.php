@@ -1,16 +1,8 @@
 <?php
-if (!isset($path_components[2]))
-    $path_components[2] = '';
+if (!isset($path_components[$base_index + 1]))
+    $path_components[$base_index + 1] = '';
 
-switch ($path_components[2]) {
-    case '':
-        if (!checkSession()) {
-            header("Location: /mvc/tareas/login ");
-            exit();
-        }
-        header("Location: /mvc/tareas/mi-lista");
-        break;
-
+switch ($path_components[$base_index + 1]) {
     case 'mi-lista':
         if (!checkSession()) {
             header("Location: /mvc/tareas/login ");
@@ -88,6 +80,6 @@ switch ($path_components[2]) {
         session_destroy();
 
     default:
-        header("Location: /mvc/tareas/login");
+        header("Location: /tareas/login");
         break;
 }

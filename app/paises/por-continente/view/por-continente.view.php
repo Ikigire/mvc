@@ -1,4 +1,4 @@
-<h1 class="text-center">App Paises</h1>
+<h1 class="text-center">App Paises - Por continente</h1>
 <hr>
 <main class="row">
     <!-- Menu -->
@@ -10,13 +10,13 @@
 
     <!-- Container -->
     <section class="col">
-        <div class="col-12">
+        <div class="col-12 text-center">
             <h3>Paises</h3>
             <hr>
         </div>
         <div id="button-container" class="col-12 text-center"></div>
         <div id="paises-container" class="col-12 row">
-            <div class="card border-primary p-1 col-12 col-sm-6 col-md-6 col-lg-4">
+            <!-- <div class="card border-primary p-1 col-12 col-sm-6 col-md-6 col-lg-4">
                 <img src="https://flagcdn.com/uz.svg" alt="weas" class="card-img-top">
                 <div class="card p-1 mt-2 border-secondary">
                     <h3 class="text-center">🇺🇿 Uzbekistan</h3>
@@ -48,8 +48,9 @@
                 <div class="card-footer text-center">
                     <a href="" class="btn btn-primary">Ver más...</a>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
 </main>
-<script src="/mvc/app/paises/por-continente/controller/por-continente.controller.js"></script>
+<script src="/app/paises/helper/helper.js"></script>
+<script src="/app/paises/por-continente/controller/por-continente.controller.js"></script>

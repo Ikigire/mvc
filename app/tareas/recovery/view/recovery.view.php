@@ -19,7 +19,7 @@
                     ?>
 
                     <div class="row  align-items-center mb-3">
-                        <i class="col-12 col-md-12 col-lg-3"> <img src="/mvc/app/assets/logo.png" width="150px" alt="Logo" srcset="" /></i>
+                        <i class="col-12 col-md-12 col-lg-3"> <img src="/app/assets/logo.png" width="150px" alt="Logo" srcset="" /></i>
                         <span class="h1 fw-bold mb-0 col">Bienvenido</span>
                     </div>
                     <hr>
@@ -35,7 +35,7 @@
                     </form>
 
                     <p class="mb-5 pb-lg-2" style="color: #393f81;">
-                        ¿Ya tienes cuenta? <a href="/mvc/tareas/registro_usuario" style="color: #393f81;">Inicia sesión aquí</a>
+                        ¿Ya tienes cuenta? <a href="/tareas/registro_usuario" style="color: #393f81;">Inicia sesión aquí</a>
                     </p>
                 </div>
             </div>

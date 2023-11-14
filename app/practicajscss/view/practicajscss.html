@@ -388,25 +388,25 @@
         <div class="wrapper">
             <div id="menubar">
                 <ul id="menulist">
-                    <li class="menuitem" onclick="reStyle(0)">Stylesheet 1
+                    <li class="menuitem" onclick="changeStyle(0)">Stylesheet 1
                     </li>
-                    <li class="menuitem" onclick="reStyle(1)">Stylesheet 2
+                    <li class="menuitem" onclick="changeStyle(1)">Stylesheet 2
                     </li>
-                    <li class="menuitem" onclick="reStyle(2)">Stylesheet 3
+                    <li class="menuitem" onclick="changeStyle(2)">Stylesheet 3
                     </li>
-                    <li class="menuitem" onclick="reStyle(3)">Stylesheet 4
+                    <li class="menuitem" onclick="changeStyle(3)">Stylesheet 4
                     </li>
-                    <li class="menuitem" onclick="noStyles()">No Stylesheet
+                    <li class="menuitem" onclick="changeStyle()">No Stylesheet
                     </li>
                 </ul>
             </div>
             <div id="main">
                 <h1>Same Page Different Stylesheets</h1>
                 <p>This is a demonstration of how different stylesheets can change the layout of your HTML page. You can change the layout of this page by selecting different stylesheets in the menu, or by selecting one of the following links:<br>
-                    <a href="#" onclick="reStyle(0);return false">Stylesheet1</a>,
-                    <a href="#" onclick="reStyle(1);return false">Stylesheet2</a>,
-                    <a href="#" onclick="reStyle(2);return false">Stylesheet3</a>,
-                    <a href="#" onclick="reStyle(3);return false">Stylesheet4</a>.
+                    <a href="#" onclick="changeStyle(0);return false">Stylesheet1</a>,
+                    <a href="#" onclick="changeStyle(1);return false">Stylesheet2</a>,
+                    <a href="#" onclick="changeStyle(2);return false">Stylesheet3</a>,
+                    <a href="#" onclick="changeStyle(3);return false">Stylesheet4</a>.
                     <!-- <a href="#" onclick="reStyle(3);return false">Stylesheet4</a>. -->
                 </p>
                 <h2>No Styles</h2>
@@ -415,7 +415,9 @@
             <div id="sidebar">
                 <h3>Side-Bar</h3>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-                <a href="registro">Ir al registro</a>
+                <a href="registro">Ir al registro</a><hr>
+                <a href="tareas">App tareas</a><hr>
+                <a href="app-paises">App tareas</a><hr>
             </div>
         </div>
 
@@ -429,7 +431,7 @@
         const array = ['Pedro', 'Angel', 'Carlos'];
 
         setTimeout(()=> {
-            alert("Agregando nombres a la lista");
+            
             let menuList = document.getElementById('menulist');
             array.forEach(
                 (name) => {
@@ -451,21 +453,33 @@
         //     alert(element);
         // }
 
-        function noStyles() {
-            for (let i = 0; i < document.styleSheets.length; i++) {
-                document.styleSheets.item(i).disabled = true;
-                
-            }
-            // document.styleSheets[0].disabled = true;
-            // document.styleSheets[1].disabled = true;
-            // document.styleSheets[2].disabled = true;
-            // document.styleSheets[3].disabled = true;
-        }
+        // function noStyles(n = -1) {
+        //     for (let i = 0; i < document.styleSheets.length; i++) {
+        //         if (i == n)
+        //             continue;
+        //         document.styleSheets.item(i).disabled = true;
+        //     }
+        //     // document.styleSheets[0].disabled = true;
+        //     // document.styleSheets[1].disabled = true;
+        //     // document.styleSheets[2].disabled = true;
+        //     // document.styleSheets[3].disabled = true;
+        // }
 
-        function reStyle(n) {
-            // alert("Activando estilo: " + n);
-            noStyles();
-            document.styleSheets.item(n).disabled = false;
+        // async function reStyle(n) {
+        //     n = parseInt(n);
+        //     // console.log("Activando estilo: " + n);
+        //     await noStyles(n);
+        //     document.styleSheets.item(n).disabled = false;
+        // }
+
+        function changeStyle(n = -1) {
+            for (let i = 0; i < document.styleSheets.length; i++) {
+                if (i == n){
+                    document.styleSheets[i].disabled = false;
+                    continue;
+                }
+                document.styleSheets[i].disabled = true;
+            }
         }
 
         function changeName(name) {
@@ -473,7 +487,7 @@
             let greetBase = "Welcome to My Homepage";
             if ( !name ){
                 h1Greetings.innerHTML = greetBase;
-                reStyle(1);
+                changeStyle(1);
                 return;
             }
             
@@ -481,7 +495,7 @@
 
         }
 
-        reStyle(1);
+        changeStyle(3);
     </script>
 
 

@@ -18,11 +18,11 @@
                 $error = UsuariosRepository::getInstance()->getMysqli()->error;
                 if ( !isset($error) || $$error == "" )
                     $error = "Ya existe usuario con ese nombre, elija otro por favor";
-                header("Location: /mvc/tareas/registro_usuario?error={$error}");
+                header("Location: /tareas/registro_usuario?error={$error}");
                 break;
             }
 
-            header("Location: /mvc/tareas/login");
+            header("Location: /tareas/login");
             break;
         
         default:

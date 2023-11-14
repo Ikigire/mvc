@@ -6,12 +6,12 @@
         <hr>
         <div class="card border-primary text-center mb-3">
             <div class="card-body">
-                <i class="card-img-top"> <img src="/mvc/app/assets/user_avatar.jpg" width="150px" alt="Logo" srcset="" /></i>
+                <i class="card-img-top"> <img src="/app/assets/user_avatar.jpg" width="150px" alt="Logo" srcset="" /></i>
                 <h3 class="card-title"><?php echo $_SESSION['user_name']; ?></h3>
             </div>
             <div class="card-footer">
                 <p class="card-text" style="color: #393f81;">
-                    <a href="/mvc/tareas/log-out" class="btn btn btn-outline-link"
+                    <a href="/tareas/log-out" class="btn btn btn-outline-link"
                     title="Cerrar Sesión"
                     ><i class="bi bi-box-arrow-left"></i></a>
                 </p>
@@ -19,10 +19,10 @@
         </div>
         <ul class="list-group">
             <li class="list-group-item">
-                <a href="/mvc/tareas/registro" class="btn btn-link">Nueva tarea</a>
+                <a href="/tareas/registro" class="btn btn-link">Nueva tarea</a>
             </li>
             <li class="list-group-item bg-primary">
-                <a href="/mvc/tareas" class="btn btn-link text-white">Mis tareas</a>
+                <a href="/tareas" class="btn btn-link text-white">Mis tareas</a>
             </li>
         </ul>
     </div>
@@ -57,7 +57,7 @@
                 if ($tareas[$i]->getStatus() != "Completado") {
                     $button = "
                     <a class='btn btn-success btn-sm'
-                        href='/mvc/tareas/completar?id={$tareas[$i]->getId()}' 
+                        href='/tareas/completar?id={$tareas[$i]->getId()}' 
                         title='Marcar tarea como Completada'
                         >
                         <i class='bi bi-bookmark-check'></i>

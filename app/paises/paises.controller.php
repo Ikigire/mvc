@@ -1,9 +1,9 @@
 <?php
 
-    if ( !isset($path_components[2]) )
-        $path_components[2] = '';
+    if ( !isset($path_components[$base_index + 1]) )
+        $path_components[$base_index + 1] = 'por-continente';
 
-    switch ($path_components[2]) {
+    switch ($path_components[$base_index + 1]) {
         case 'por-continente':
             require_once("./app/paises/por-continente/view/por-continente.view.php");
             break;
@@ -17,6 +17,8 @@
             break;
         
         default:
-            header("Location: /mvc/app-paises/por-continente");
+            header("Location: /app-paises/por-continente");
+            exit();
+            // header("HTTP/1.1 404 Not Found");
             break;
     }
