@@ -9,6 +9,7 @@
     $env = parse_ini_file(".env");
 
     foreach ( $env as $llave => $value ){
+        $value = strval($value);
         $_ENV[$llave] = $value;
     }
 ?>
