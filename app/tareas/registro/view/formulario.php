@@ -41,17 +41,17 @@ if (isset($query_params)) {
         <h3 class="text-center">Tarea</h3>
         <hr>
         <form action="" method="post">
-            <div class="form-floating mt-3">
+            <div class="form-floating mt-3 mb-3">
                 <input type="text" class="form-control" name="titulo" id="titulo" placeholder="" required>
                 <label for="titulo">Titulo tarea</label>
             </div>
 
-            <div class="form-floating">
+            <div class="form-floating mb-3">
                 <textarea class="form-control" name="descripcion" id="descripcion" placeholder="" required></textarea>
                 <label for="descripcion">Descripcion</label>
             </div>
 
-            <div class="form-floating">
+            <div class="form-floating" mb-3>
                 <select class="form-select" name="status" id="status" aria-label="Floating" required>
                     <option selected hidden></option>
                     <option value="Pendiente">Pendiente</option>
@@ -61,7 +61,7 @@ if (isset($query_params)) {
                 <label for="status">Status</label>
             </div>
 
-            <button type="submit" class="btn btn-primary mt-3">
+            <button type="submit" class="btn btn-primary">
                 Guardar
             </button>
         </form>

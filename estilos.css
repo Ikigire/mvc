@@ -7,6 +7,10 @@
     );
 }
 
+.form-floating label {
+    color: black !important;
+}
+
 body {
     background: linear-gradient(
         90deg, 
