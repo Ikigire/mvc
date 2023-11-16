@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/app/paises/common/paises-module.css">
 <?php
 
     if ( !isset($path_components[$base_index + 1]) )

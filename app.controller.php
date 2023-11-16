@@ -21,6 +21,6 @@
             break;
         
         default:
-            header("Location: /practicajscss");
+            header("Location: /tareas");
             break;
     }

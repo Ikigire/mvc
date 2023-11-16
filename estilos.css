@@ -1,0 +1,19 @@
+.card-form {
+    background: linear-gradient(
+        90deg, 
+        rgba(7,61,102, 1) 0%,
+        rgba(9,114,121, 0.88) 35%,
+        rgba(0,255,242, 1)
+    );
+}
+
+body {
+    background: linear-gradient(
+        90deg, 
+        rgba(7,61,102, 1) 0%,
+        rgba(9,114,121, 0.88) 35%,
+        /* rgba(0,255,242, 1) */
+        rgba(58,194,209,1) 100%
+    );
+    color: white;
+}

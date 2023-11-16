@@ -15,7 +15,7 @@ let continentes = Object.keys(regiones);
 
 for (let continente of continentes){
     let button = document.createElement('button');
-    button.classList.add('btn', 'btn-outline-primary', 'm-1');
+    button.classList.add('btn', 'btn-outline-primary', 'm-1', 'white-background', 'intense-borders');
     button.innerText = continente;
     button.onclick = (evt) => onContinenteButtonClick(continente);
 
