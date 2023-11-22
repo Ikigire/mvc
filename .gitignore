@@ -1,2 +1,5 @@
 # anulando el envio de las variables de entorno
 .env
+
+/pruebas
+/web-service
